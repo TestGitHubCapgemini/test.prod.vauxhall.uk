@@ -1,8 +1,223 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <title>Chat de prueba</title>
+  <meta charset="UTF-8">
+  <title>Tech News</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Estilos personalizados */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #988A7D;
+      overflow-y: scroll;
+      scrollbar-width: thin;
+      scrollbar-color: #333 #f5f5f5;
+    }
+    
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background-color: #f5f5f5;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background-color: #333;
+    }
+    
+    .container {
+      max-width: 1200px;
+      padding: 20px;
+    }
+    
+    .article {
+      margin-bottom: 30px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    
+    .article h2 {
+      margin-bottom: 10px;
+    }
+    
+    .article p {
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Tech News</a>
+  </nav>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="article">
+          <h2>El nuevo smartphone XYZ llega al mercado</h2>
+          <img src="ruta_de_la_imagen_1.jpg" alt="Imagen 1" class="img-fluid">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut orci congue, vestibulum mauris ut, bibendum sem. Donec rhoncus lacinia nisi et ullamcorper. Vestibulum eget velit rhoncus, auctor elit ac, euismod ligula.</p>
+          <!-- Más contenido de artículo -->
+        </div>
+        
+        <!-- Agrega más artículos utilizando el mismo formato de div.article -->
+        <div class="article">
+          <h2>La inteligencia artificial y su impacto en la industria automotriz</h2>
+          <img src="ruta_de_la_imagen_2.jpg" alt="Imagen 2" class="img-fluid">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut orci congue, vestibulum mauris ut, bibendum sem. Donec rhoncus lacinia nisi et ullamcorper. Vestibulum eget velit rhoncus, auctor elit ac, euismod ligula.</p>
+          <!-- Más contenido de artículo -->
+        </div>
+        
+        <div class="article">
+          <h2>Los mejores auriculares para disfrutar de tu música favorita</h2>
+          <img src="ruta_de_la_imagen_3.jpg" alt="Imagen 3" class="img-fluid">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut orci congue, vestibulum mauris ut, bibendum sem. Donec rhoncus lacinia nisi et ullamcorper. Vestibulum eget velit rhoncus, auctor elit ac, euismod ligula.</p>
+          <!-- Más contenido de artículo -->
+        </div>
+        
+        <div class="article">
+          <h2>Las tendencias de diseño en smartphones para el próximo año</h2>
+          <img src="ruta_de_la_imagen_4.jpg" alt="Imagen 4" class="img-fluid">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut orci congue, vestibulum mauris ut, bibendum sem. Donec rhoncus lacinia nisi et ullamcorper. Vestibulum eget velit rhoncus, auctor elit ac, euismod ligula.</p>
+          <!-- Más contenido de artículo -->
+        </div>
+        
+        <!-- Agrega más artículos utilizando el mismo formato de div.article -->
+        <div class="article">
+          <h2>El nuevo sistema operativo ABC revoluciona la industria tecnológica</h2>
+          <img src="ruta_de_la_imagen_5.jpg" alt="Imagen 5" class="img-fluid">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut orci congue, vestibulum mauris ut, bibendum sem. Donec rhoncus lacinia nisi et ullamcorper. Vestibulum eget velit rhoncus, auctor elit ac, euismod ligula.</p>
+          <!-- Más contenido de artículo -->
+        </div>
+        
+        <div class="article">
+          <h2>Los avances en inteligencia artificial en el campo de la medicina</h2>
+          <img src="ruta_de_la_imagen_6.jpg" alt="Imagen 6" class="img-fluid">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut orci congue, vestibulum mauris ut, bibendum sem. Donec rhoncus lacinia nisi et ullamcorper. Vestibulum eget velit rhoncus, auctor elit ac, euismod ligula.</p>
+          <!-- Más contenido de artículo -->
+        </div>
+        
+        <div class="article">
+          <h2>Descubre las últimas novedades en tecnología wearable</h2>
+          <img src="ruta_de_la_imagen_7.jpg" alt="Imagen 7" class="img-fluid">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut orci congue, vestibulum mauris ut, bibendum sem. Donec rhoncus lacinia nisi et ullamcorper. Vestibulum eget velit rhoncus, auctor elit ac, euismod ligula.</p>
+          <!-- Más contenido de artículo -->
+        </div>
+        
+        <div class="article">
+          <h2>Los drones revolucionan la industria de la logística</h2>
+          <img src="ruta_de_la_imagen_8.jpg" alt="Imagen 8" class="img-fluid">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut orci congue, vestibulum mauris ut, bibendum sem. Donec rhoncus lacinia nisi et ullamcorper. Vestibulum eget velit rhoncus, auctor elit ac, euismod ligula.</p>
+          <!-- Más contenido de artículo -->
+        </div>
+      </div>
+      
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Noticias recientes</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">Nueva actualización de software disponible</a></li>
+              <li><a href="#">Los avances en inteligencia artificial</a></li>
+              <li><a href="#">El futuro de la realidad virtual</a></li>
+              <!-- Más noticias recientes -->
+            </ul>
+          </div>
+        </div>
+        
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Artículos populares</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">Las mejores laptops para trabajo</a></li>
+              <li><a href="#">Consejos para proteger tu privacidad en línea</a></li>
+              <li><a href="#">Los mejores smartphones del año</a></li>
+              <!-- Más artículos populares -->
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Agrega más secciones de contenido adicional -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Nuevos lanzamientos</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">El último modelo de la marca ABC</a></li>
+              <li><a href="#">Una mirada al nuevo sistema operativo XYZ</a></li>
+              <li><a href="#">Descubre la cámara revolucionaria del teléfono DEF</a></li>
+              <!-- Más lanzamientos -->
+            </ul>
+          </div>
+        </div>
+        
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Reseñas de productos</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">La mejor impresora para uso doméstico</a></li>
+              <li><a href="#">Análisis de la nueva consola de videojuegos</a></li>
+              <li><a href="#">Opiniones sobre el último smartwatch</a></li>
+              <!-- Más reseñas -->
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Agrega más secciones de contenido adicional -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Eventos tecnológicos</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">Conferencia de tecnología en tu ciudad</a></li>
+              <li><a href="#">Hackathon para desarrolladores</a></li>
+              <li><a href="#">Exposición de gadgets innovadores</a></li>
+              <!-- Más eventos -->
+            </ul>
+          </div>
+        </div>
+        
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Entrevistas con expertos</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">Charla con el CEO de una startup de IA</a></li>
+              <li><a href="#">Entrevista con el diseñador de un nuevo dispositivo</a></li>
+              <li><a href="#">Conversación con el científico líder en robótica</a></li>
+              <!-- Más entrevistas -->
+            </ul>
+          </div>
+        </div>
+        
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Tutoriales y guías</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">Aprende a programar en Python desde cero</a></li>
+              <li><a href="#">Guía de seguridad informática para principiantes</a></li>
+              <li><a href="#">Tutorial de edición de video con software profesional</a></li>
+              <!-- Más tutoriales -->
+            </ul>
+          </div>
+        </div>
+        
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Opiniones de expertos</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">Experto en ciberseguridad comparte su visión</a></li>
+              <li><a href="#">Análisis de un reconocido analista de tecnología</a></li>
+              <li><a href="#">Opiniones de un científico especializado en IA</a></li>
+              <!-- Más opiniones -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
 <style>
 .embedded-service .fab div[class="icon_fab_container"] > img.esw-custom_icon{
@@ -11,7 +226,7 @@ width : 100% !important;
 button#esw-fab{
 height:80px !important;
 width:80px !important;
-background-color: transparent !important;
+background-color: transparent;
 }
 button#esw-fab[aria-expanded="true"]{
 height: 56px !important;
