@@ -3,6 +3,17 @@
   <title>Chat de prueba</title>
 </head>
 <body>
+<!-- Embedded Service <-> LWC Wrapper -->
+<script>
+          window.addEventListener("message", function() {
+              var payload = event.data;
+              if (payload && payload.type === "chasitor.sendMessage") {
+                  embedded_svc.postMessage("chasitor.sendMessage", payload.message);
+              }
+          },
+              false
+          );
+</script>
 <!-- Embedded Service ChatBot Styles -->
 <style type='text/css'>
         @import url('https://psa-customerfirst--c.visualforce.com/resource/1683724612000/headset_icon_chatbot_abarth?');
