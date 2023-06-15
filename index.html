@@ -3,16 +3,80 @@
   <title>Chat de prueba</title>
 </head>
 <body>
+<!-- Embedded Service ChatBot Styles -->
 <style type='text/css'>
-	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #005290;
-		font-family: "Arial", sans-serif;
-	}
-	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #005290;
-	}
+        @import url('https://psa-customerfirst--marketingb.sandbox.my.site.com/opel/resource/1673468055000/SnY_slds_mod_min_css/slds.min.css');
+        .embeddedServiceHelpButton .helpButton .uiButton {
+          background-color: #005290;
+          font-family: "Arial", sans-serif;
+        }
+        .embeddedServiceHelpButton .helpButton .uiButton {
+          /* background-color: #5820D5 !important;  */
+          font-family: "Salesforce Sans", sans-serif !important;
+        }
+        .embeddedServiceHelpButton .helpButton .uiButton:focus {
+         /* outline: 1px solid #5820D5 !important; */
+        }
+         @media only screen and (min-width: 48em) {
+       .embeddedServiceHelpButton .helpButton .uiButton:hover::before,
+         .embeddedServiceHelpButton .helpButton .uiButton:focus::before
+         {
+        border-radius: 50% !important; 
+         }
+     }
+        @font-face {
+          font-family: 'Salesforce Sans' !important;
+          src: url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.woff') format('woff'),
+            url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.ttf') format('truetype') !important;
+        }
+        span.message{
+          display:none;
+        }
+       button.sidebarHeader.minimizedContainer.embeddedServiceSidebarMinimizedDefaultUI {
+            background-image: url('https://psa-customerfirst--preprod--c.sandbox.vf.force.com/resource/1683797322000/headset_icon_chatbot_abarth') !important;
+            background-position: center;
+            background-size: 70px;
+            background-repeat: no-repeat !important;
+            background-color: #5820D5 !important;
+            height: 70px !important;
+            width: 70px !important;
+            border-radius: 50% !important;
+            min-height: 60px !important;
+            min-width: 60px !important;
+            margin: 30px;
+            border-style: none;
+            box-shadow: none !important;
+        }
+        .embeddedServiceHelpButton .helpButton .uiButton{
+        background-image: url('https://psa-customerfirst--preprod--c.sandbox.vf.force.com/resource/1683797322000/headset_icon_chatbot_abarth') !important;
+        background-position: center;
+        background-color: #5820D5 !important;
+        background-size: 50px;
+        background-repeat: no-repeat !important;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        min-height: 60px !important;
+        min-width: 60px !important;
+        box-shadow: none !important;
+        }
+        @keyframes pulse-blue {
+          0%   {transform: scale(0.95);box-shadow: 0 0 0 0 var(--lwc-colorBackgroundButtonBrand,rgb(0, 163, 224));}
+          70%  {transform: scale(1.0);box-shadow: 0 0 0 20px rgb(0 126 219 / 0%);}
+          100% {transform: scale(0.95);box-shadow: 0 0 0 0 rgb(0 126 219 / 0%);}
+        }
+        .embeddedServiceHelpButton .embeddedServiceIcon{
+          visibility : hidden;
+        }
+        .embeddedServiceHelpButton .helpButton{
+         /* height : 90px; */
+        margin-right: 20px;
+        margin-bottom: 60px;
+        }
+        h2[embeddedService-chatHeader_chatHeader] {
+          font-size : 13px !important;
+        }
 </style>
-
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
