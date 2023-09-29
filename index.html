@@ -274,10 +274,10 @@ var initESW = function(gslbBaseURL) {
     embedded_svc.menu.settings.language = 'es'; //For example, enter 'en' or 'en-US'
 	
 		embedded_svc.menu.init(
-			'https://psa-customerfirst.my.salesforce.com',
-			'https://d.la3-c1-cdg.salesforceliveagent.com/chat',
+			'https://psa-customerfirst--preprod2.sandbox.my.salesforce.com',
+			'https://d.la3-c1cs-cdg.salesforceliveagent.com/chat',
 			gslbBaseURL,
-			'00D0O000000YvX4',
+			'00D7Y000000DnWB',
 			'ES_Jeep_JAFAL'
 		);
 };
@@ -300,7 +300,7 @@ if (isMobileDevice) {} else {
 
 if (!window.embedded_svc || !window.embedded_svc.menu) {
     var s = document.createElement('script');
-		s.setAttribute('src', 'https://psa-customerfirst.my.salesforce.com/embeddedservice/menu/fab.min.js');
+		s.setAttribute('src', 'https://psa-customerfirst--preprod2.sandbox.my.salesforce.com/embeddedservice/menu/fab.min.js');
     s.onload = function() {
         initESW(null);
     };
