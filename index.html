@@ -218,96 +218,198 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
-<style>
-.embedded-service .fab div[class="icon_fab_container"] > img.esw-custom_icon{
-width : 100% !important;
+<style type='text/css'>
+  @media screen and (max-width: 630px) { 
+    .embedded-service .fab {
+        bottom: 70px; z-index: 1000000 !important;
+    }
+ 
 }
-button#esw-fab{
-height:120px !important;
-width:120px !important;
-background-color: transparent;
-}
-button#esw-fab[aria-expanded="true"]{
-height: 56px !important;
-width: 56px !important;
-bottom: 16px !important;
-}
-.embedded-service #esw-fab.showAnimation{
-animation:channelmenu-rotate-in-2-br-cw 0.5s ease-in both,channelmenu-shadow-pulse 2s infinite;
-}
-.embedded-service .fab div[class="icon_fab_container"] {
-width: 68px !important;
-height: 68px !important;
-background-size: 70px 70px !important;
-}
-.embedded-service .fab:hover:before, .embedded-service .fab:focus:before {
-
-    background-color: transparent;
-    opacity: 0;
-
-}
-
-.embedded-service .fab {
-
-    box-shadow: 0px 0px 0px 0 rgba(45,45,45,0.5);
-
-}
+  .embedded-service .fab {position: fixed; z-index: 100000; right: 10px; padding: 0; } /* CW custom code to lift CTA*/
+  .text[embeddedService-chatHeaderAnnouncement_chatHeaderAnnouncement] {color:white} /* changes colour of text for warning messages to white */
+  .embedded-service .channelmenu {position: fixed; z-index: 1000000; bottom: 80px} /* CW custom code to lift channel menu*/
+  .embeddedServiceSidebarMinimizedFabDefaultUI {position: fixed; bottom: 7px; right: 10px; z-index: 110000;} /* CW custom code to lift minimised chat CTA*/
+  .embeddedServiceSidebar.modalContainer {position: fixed; z-index: 10000000;} /* CW custom code to lift chat window to top layer*/
+  .embeddedServiceSidebar.layout-float .dockableContainer {bottom: 80px;} 
+  .embedded-service .channelmenu_ctas img.esw-custom_icon {min-width:32px;} /* CW custom code for low version as cpp overrides custom icon size making them too big, this drops them back to correct size*/
+   .embeddedServiceSidebarMinimizedFabDefaultUI {position: fixed; right: 10px;} /* CW move the minimised chat icon inline with channel menu icon CTA*/
+  .embeddedServiceSidebarMinimizedFabDefaultUI .embeddedServiceIcon {padding: 0;} /*CW makes the minimised chat icon bigger as D1 styling made too small*/
+  .embedded-service .channelmenu_ctas {font-size: inherit}/*CW makes channel menu option font smaller*/
+  .embeddedServiceSidebarButton .label {font-size: inherit; background-color: inherit}/*CW remove black chat button background*/
+  .embeddedServiceSidebarButton.uiButton--inverse .label {background-color: inherit}/*CW as a result of above background need to specify savechat button background*/
+  .embeddedservice-chat-header lightning-icon, embeddedservice-chat-header svg.slds-icon-text-default {fill: #fff}
+  .embeddedServiceLiveAgentStateChatItem.chatMessage button span {background-color: inherit}/* Sets the background of the chatbot question buttons to inherit*/
+  .embeddedService-chatHeader_chatHeader.h2, h2 {color: inherit}/* Sets the Header font to Inherit */
+ 
+  .embeddedService-chatHeader_chatHeader .button, button {padding:revert; position:revert;margin:inherit;}/* Sets the header minimise and close buttons to correct position to make them visible*/
   
-.embedded-service #esw-fab.showAnimation {
-    transform: translate3d(0,0,0);
-    -webkit-animation: channelmenu-rotate-in-0-br-cw 0.0s ease-in both,channelmenu-shadow-pulse 0s 0s 0;
-    animation: channelmenu-rotate-in-0-br-cw 0.0s ease-in both,channelmenu-shadow-pulse 0s 0s 0;
+  .embedded-service .fab div[class="icon_fab_container"] > img.esw-custom_icon {width:100%}
+  .embedded-service .fab {width:100px; height:100px}
+  .embedded-service .fab:hover:before, .embedded-service .fab:focus:before {
+content : none !important
 }
-  
-  .embedded-service .fab:focus {
-    box-shadow: 0 0 0px 0px transparent; 
-}
-/*.embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.chasitor.plaintextContent {
-color: black !important;
-}*/
 
-</style>
-<script type='text/javascript'>
-var initESW = function(gslbBaseURL) {
-    // Required if you want labels in a language that’s different from your user’s context.
-    embedded_svc.menu.settings.language = 'it'; //For example, enter 'en' or 'en-US'
+.embedded-service .dynamicDiv {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-color: #000;
+    opacity: .2;
+    -webkit-animation: channelmenu-fade-in-on-hover 20s ease infinite;
+    animation: channelmenu-fade-in-on-hover 20s ease infinite;
+}
+
+  
+  
+/* Rushi's code to pulse channel menu icon*/
+  
+  @keyframes pulse-blue {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(235, 100 ,40 , 0.7);
+	}
 	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 20px rgba(235, 100, 40, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(235, 100, 40, 0);
+	}
+}
+
+.embedded-service #esw-fab.fab {
+	animation: pulse-blue 2s infinite !important;
+} 
+  /* End Rushi's code to pulse channel menu icon*/
+  
+  </style>
+
+<!--<script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script> GK commented out as it causes message duplication -->
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		// Required if you want labels in a language that’s different from your user’s context.
+		//embedded_svc.menu.settings.language = ''; //For example, enter 'en' or 'en-US'
+
 		embedded_svc.menu.init(
-			'https://psa-customerfirst--preprod2.sandbox.my.salesforce.com',
-			'https://d.la3-c1cs-cdg.salesforceliveagent.com/chat',
+			'https://psa-customerfirst.my.salesforce.com',
+			'https://d.la3-c1-cdg.salesforceliveagent.com/chat',
 			gslbBaseURL,
-			'00D7Y000000DnWB',
-			'IT_FT_TOPOLINO'
+			'00D0O000000YvX4',
+			'UK_Vauxhall_store'
 		);
-};
+	};
 
-var details = navigator.userAgent;
-// Creating a regular expression containing some mobile devices keywords to search it in details string
-var regexp = /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i;
-
-// Using test() method to search regexp in details
-var isMobileDevice = regexp.test(details);
-if (isMobileDevice) {} else {
-    console.log('inside desktop');
-    var style = document.createElement('style');
-    style.innerHTML = 
-	'.embeddedServiceHelpButton .uiButton { height: 80px !important; min-width: 80px !important; width: 80px;}';
-    style.innerHTML += 'li#esw-cta_3mi7Y0000000014{pointer-events : none;opacity :0.4;}';
-    style.innerHTML += '.embedded-service .channelmenu_ctas > li:last-child{pointer-events : none;opacity :0.4;}';
-    document.body.appendChild(style);
+	if (!window.embedded_svc || !window.embedded_svc.menu) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://psa-customerfirst.my.salesforce.com/embeddedservice/menu/fab.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+  /* everything below is formatting*/
+  setTimeout(
+        function(){ 
+        var target = document.getElementById('esw-fab');
+if(target) {
+    console.log(document.getElementById("esw-fab"));console.log("buttonclick");
+  var new_div = document.createElement('div');
+    new_div.className = 'dynamicDiv';
+    target.insertBefore(new_div,target.childNodes[0])
 }
-
-if (!window.embedded_svc || !window.embedded_svc.menu) {
-    var s = document.createElement('script');
-		s.setAttribute('src', 'https://psa-customerfirst--preprod2.sandbox.my.salesforce.com/embeddedservice/menu/fab.min.js');
-    s.onload = function() {
-        initESW(null);
-    };
-    document.body.appendChild(s);
+console.log(document.getElementById("esw-fab"));console.log("buttonclick"); 
+              
+          document.getElementById("esw-fab").addEventListener("click", function() {
+var windowOpenStyle = window.getComputedStyle(document.querySelector('#esw-menu-opened-fab-icon')).display;
+if(windowOpenStyle == 'none') {
+var demoId = document.getElementById('esw-fab');
+demoId.style.height = "100px";
+demoId.style.width = "100px";
+demoId.style.setProperty("animation", "pulse-blue 2s infinite", "important");  
 } else {
-    initESW('https://service.force.com');
+var demoId = document.getElementById('esw-fab');
+demoId.style.height = "56px";
+demoId.style.width = "56px";
+demoId.style.bottom = "7px";
+demoId.style.setProperty("animation-play-state", "paused", "important");
+demoId.style.setProperty("-webkit-animation", "paused", "important");  
 }
+}
+);
+          
+          document.getElementById("esw-menu-closed-fab-icon").addEventListener("click", function() {
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+"event": "uaevent",
+"eventAction": "Open::LiveChatMenu",
+"eventCategory": "Chat::Salesforce",
+"eventLabel": "Logo"
+});
+});
+          
+document.getElementById("esw-cta_3mi69000000PAup").addEventListener("click", function() {
+console.log('button click');window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+"event": "uaevent",
+"eventAction": "Popin::Chat",
+"eventCategory": "Chat::Salesforce",
+"eventLabel": "Chat"
+});
+});
+
+          document.getElementById("esw-cta_3mi69000000PAuq").addEventListener("click", function() {
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+"event": "uaevent",
+"eventAction": "Redirection::Call",
+"eventCategory": "Chat::Salesforce",
+"eventLabel": "Call"
+});
+});
+          
+           document.getElementById("esw-cta_x").addEventListener("click", function() {
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+"event": "uaevent",
+"eventAction": "Redirection::VirtualShowroom",
+"eventCategory": "Chat::Salesforce",
+"eventLabel": "VirtualShowroom"
+});
+});    
+          
+            document.getElementById("esw-cta_y").addEventListener("click", function() {
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+"event": "uaevent",
+"eventAction": "Redirection::Message",
+"eventCategory": "Chat::Salesforce",
+"eventLabel": "Message"
+});
+});    
+          
+           document.getElementById("esw-cta_3mi69000000PAur").addEventListener("click", function() {
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+"event": "uaevent",
+"eventAction": "Redirection::TestDrive",
+"eventCategory": "Chat::Salesforce",
+"eventLabel": "TestDrive"
+});
+});  
+          
+    }, 
+        10000
+    );
+  
 </script>
 </body>
 </html>
